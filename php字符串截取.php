@@ -23,7 +23,7 @@ function msubstr($str, $start=0, $length=15, $charset="utf-8", $suffix=true) {
     if($suffix) {
         return $slice."…";
     }
-    return $slice;  aaaa
+    return $slice;
 }
 
 
