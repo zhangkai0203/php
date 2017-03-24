@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * 字符串截取功能
  * @param $str   要截取的字符串
  * @param int $start 开始位置
  * @param int $length 截取的长度
@@ -24,6 +25,34 @@ function msubstr($str, $start=0, $length=15, $charset="utf-8", $suffix=true) {
         return $slice."…";
     }
     return $slice;
+}
+
+/**
+ * 字符串查找功能
+ * @param $data  查找的字符串
+ * @param $str   查找的字符
+ * @param int $type  查找第几次出现
+ * @return int|void  放回查找的位置
+ */
+function get_strpos($data,$str,$type=0){
+    //判断是否为空
+    if(empty($str) && empty($data)){
+        return;
+    }
+    //因为strpos查找对中文有乱码，所以使用mb_stripos
+    if(function_exists("mb_stripos")){
+        //不区分大小写查找
+        $s= mb_stripos($data,$str,$type);
+    }else{
+        //不区分大小写查找
+        $s =  stripos($data,$str,$type);
+    }
+    //判断是否查找成功
+    if($s){
+        return $s;
+    }else{
+        return;
+    }
 }
 
 
