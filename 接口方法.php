@@ -36,9 +36,9 @@ function output_data($datas, $extend_data = array()) {
 	}
 	
 	//jsonp 请求数据
-	if(!empty($_GET['callback'])) {
+	if(!empty($_REQUEST['callback'])) {
 
-        echo $_GET['callback'].'('.json_encode($data).')';die;
+        echo $_REQUEST['callback'].'('.json_encode($data).')';die;
 
     } else {
 
